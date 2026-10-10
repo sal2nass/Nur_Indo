@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نُور | حلقة تحفيظ القرآن – إندونيسيا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand" data-go="home">
+    <span class="mark">ن</span>
+    <div>
+      <h1 data-i18n="brand_name">نُور</h1>
+      <p data-i18n="brand_sub">حلقة تحفيظ القرآن · إندونيسيا</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <button data-go="home" class="active" data-i18n="nav_home">الرئيسية</button>
+    <button data-go="about" data-i18n="nav_about">من نحن</button>
+    <button data-go="register" data-i18n="nav_register">التسجيل</button>
+    <button data-go="login" data-i18n="nav_login">دخول الطلاب</button>
+  </nav>
+  <button id="langBtn" aria-label="language">🇮🇩 ID</button>
+</header>
+
+<div class="notice" id="noticeBar">
+  <span class="dot"></span>
+  <p id="noticeText"></p>
+  <button id="noticeAll" data-i18n="notice_all">كل الإعلانات</button>
+</div>
+
+<main id="app">
+  <!-- HOME -->
+  <section id="view-home" class="view active">
+    <div class="hero">
+      <div>
+        <span class="eyebrow" data-i18n="hero_badge">إندونيسيا · عمر 10 – 25 سنة</span>
+        <h2 data-i18n="hero_title">احفظ القرآن، خطوة بخطوة.</h2>
+        <p class="sub" data-i18n="hero_sub">مجموعات صغيرة، متابعة واضحة، وولي الأمر يرى كل شيء.</p>
+        <div class="actions">
+          <button class="btn" data-go="register" data-i18n="hero_cta1">التسجيل</button>
+          <button class="btn btn-outline" data-go="login" data-i18n="hero_cta2">دخول الطلاب</button>
+        </div>
+      </div>
+      <div class="sched">
+        <h3 data-i18n="sched_title">مواعيد الحلقة</h3>
+        <div class="sched-row"><span data-i18n="d1">الاثنين</span><span>16:00</span></div>
+        <div class="sched-row"><span data-i18n="d2">الأربعاء</span><span>16:00</span></div>
+        <div class="sched-row"><span data-i18n="d3">الجمعة</span><span>16:00</span></div>
+        <small data-i18n="sched_note">المدة 90 دقيقة لكل لقاء.</small>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3 data-i18n="ann_title">الإعلانات</h3>
+      <p data-i18n="ann_sub">آخر ما أعلنه المشرف.</p>
+      <div class="news-list" id="newsGrid"></div>
+    </div>
+
+    <div class="sec">
+      <h3 data-i18n="steps_title">ثلاث خطوات فقط</h3>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><b data-i18n="step1_t">سجّل اسمك</b><p data-i18n="step1_d">دقيقة واحدة.</p></div>
+        <div class="step"><span class="n">2</span><b data-i18n="step2_t">استلم رقمك</b><p data-i18n="step2_d">رقم دخول خاص بك.</p></div>
+        <div class="step"><span class="n">3</span><b data-i18n="step3_t">تابع تقدمك</b><p data-i18n="step3_d">درجات وحضور وواجبات.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="view-about" class="view">
+    <div class="card">
+      <h2 data-i18n="about_title">من نحن</h2>
+      <p class="lead" data-i18n="about_sub">حلقة تحفيظ في إندونيسيا للفئة 10–25 سنة.</p>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><b data-i18n="ab1t">مجموعات صغيرة</b><p data-i18n="ab1d">كل حلقة بعدد محدود.</p></div>
+        <div class="step"><span class="n">2</span><b data-i18n="ab2t">متابعة موثقة</b><p data-i18n="ab2d">حفظ ودرجات وحضور.</p></div>
+        <div class="step"><span class="n">3</span><b data-i18n="ab3t">ولي الأمر مطّلع</b><p data-i18n="ab3d">يدخل برقم الطالب.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="view-register" class="view">
+    <div class="card">
+      <h2 data-i18n="reg_title">التسجيل بالحلقة</h2>
+      <p class="lead" data-i18n="reg_sub">مجاناً. نتواصل معك بعد التسجيل لفرزك.</p>
+      <form id="regForm" class="form">
+        <label><span data-i18n="f_name">الاسم الكامل</span><input id="rName" required maxlength="60" data-i18n-ph="f_name_ph" placeholder="الاسم"></label>
+        <div class="row2">
+          <label><span data-i18n="f_age">العمر</span><input id="rAge" type="number" min="5" max="40" required placeholder="15"></label>
+          <label><span data-i18n="f_wa">واتساب</span><input id="rWa" required maxlength="20" placeholder="08xx" inputmode="tel"></label>
+        </div>
+        <label><span data-i18n="f_guardian">اسم ولي الأمر</span><input id="rGuardian" maxlength="60"></label>
+        <button class="btn big" type="submit" data-i18n="f_submit">تسجيل</button>
+      </form>
+      <div id="regOk" class="ok hidden"></div>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="view-login" class="view">
+    <div class="card center">
+      <h2 data-i18n="login_title">تسجيل الدخول</h2>
+      <p class="lead" data-i18n="login_sub">أدخل رقمك. المشرف: 111.</p>
+      <div class="form">
+        <input id="loginCode" class="code-input" inputmode="numeric" maxlength="10" placeholder="••••" autocomplete="off" aria-label="code">
+        <button class="btn big" id="loginBtn" data-i18n="login_btn">دخول</button>
+        <p class="hintline" data-i18n="login_hint">رقم الحلقة يعرض طلابها لتختار اسمك. رقمك الخاص يفتح ملفك مباشرة.</p>
+        <p class="err hidden" id="loginErr"></p>
+      </div>
+      <div id="pickList" class="picklist hidden"></div>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section id="view-admin" class="view">
+    <div class="admin-bar">
+      <div><h2 data-i18n="admin_title">لوحة المشرف</h2><p><span data-i18n="admin_sub">إدارة الطلاب والحلقات والإعلانات.</span> · <button class="link" id="logoutBtn" data-i18n="logout">خروج</button></p></div>
+      <div class="tabs">
+        <button data-tab="students" class="active" data-i18n="tab_students">الطلاب</button>
+        <button data-tab="halaqat" data-i18n="tab_halaqat">الحلقات</button>
+        <button data-tab="news" data-i18n="tab_news">الإعلانات</button>
+      </div>
+    </div>
+    <div id="tab-students" class="tab active">
+      <div class="toolbar">
+        <input id="search" data-i18n-ph="search_ph" placeholder="بحث بالاسم أو الرقم">
+        <select id="filterH"></select>
+      </div>
+      <div id="adminStudents"></div>
+    </div>
+    <div id="tab-halaqat" class="tab">
+      <div class="inline-form">
+        <input id="hNameAr" data-i18n-ph="h_ar_ph" placeholder="اسم الحلقة بالعربية">
+        <input id="hNameId" placeholder="Nama halaqah">
+        <input id="hCode" placeholder="Kode" maxlength="10" inputmode="numeric">
+        <button class="btn" id="hAdd" data-i18n="add">إضافة</button>
+      </div>
+      <div id="halaqaList"></div>
+    </div>
+    <div id="tab-news" class="tab">
+      <div class="inline-form" style="grid-template-columns:1fr 1fr auto">
+        <input id="nAr" data-i18n-ph="n_ar_ph" placeholder="الخبر بالعربية">
+        <input id="nId" placeholder="Berita (Indonesia)">
+        <button class="btn" id="nAdd" data-i18n="publish">نشر</button>
+      </div>
+      <div id="newsAdmin"></div>
+    </div>
+  </section>
+
+  <!-- STUDENT -->
+  <section id="view-student" class="view">
+    <button class="back" data-go="login" data-i18n="back">رجوع</button>
+    <div id="studentCard"></div>
+  </section>
+
+  <footer class="foot"><p>NŪR · <span data-i18n="foot">حلقة تحفيظ القرآن — إندونيسيا</span></p></footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
